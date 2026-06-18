@@ -9,7 +9,8 @@ dependencies = [
     "fastapi",
     "uvicorn",
     "httpx",
-    "pydantic-settings"
+    "pydantic-settings",
+    "redis"
 ]
 
 [tool.setuptools.packages.find]

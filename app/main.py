@@ -117,7 +117,7 @@ async def proxy(path: str, request: Request) -> Response:
 
 def main():
     parser = argparse.ArgumentParser(description="Caching Proxy Server")
-    parser.add_argument("--port", type=int, default=3000, help="Port to run the proxy server on")
+    parser.add_argument("--port", type=int, default="0.0.0.0", help="Port to run the proxy server on")
     parser.add_argument("--origin", type=str, help="Origin server URL")
     parser.add_argument("--clear-cache", action="store_true", help="Clear all responses from cache")
     args = parser.parse_args()
@@ -131,7 +131,7 @@ def main():
 
     app.state.origin = args.origin
 
-    uvicorn.run(app, host="127.0.0.1", port=args.port, reload=False)
+    uvicorn.run(app, host="0.0.0.0", port=args.port, reload=False)
 
 if __name__ == "__main__":
     main()
